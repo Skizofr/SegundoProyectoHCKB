@@ -9,16 +9,16 @@ app.use(express.json());
 const connection = mysql.createConnection({
   host: 'localhost',
   user: 'root',
-  password: '?LasTreron77?',
-  database: 'secondproject'
+  password: '951753',
+  database: 'secondproject',
 });
 
 connection.connect((err) => {
   if (err) {
-    console.error('Conection to database failed:', err);
+    console.error('Connection to database failed:', err);
     return;
   }
-  console.log('Connection to database succesfull:');
+  console.log('Connection to database successful:');
 });
 
 app.get('/users', (req, res) => {
@@ -80,7 +80,8 @@ app.get('/votes', (req, res) => {
 app.post('/comments', (req, res) => {
   const { userId, commentText } = req.body;
 
-  const sql = 'INSERT INTO comments (userId, commentText, CURRENT_TIMESTAMP) VALUES (?, ?, ?)';
+  const sql =
+    'INSERT INTO comments (userId, commentText, CURRENT_TIMESTAMP) VALUES (?, ?, ?)';
   const values = [userId, commentText, CURRENT_TIMESTAMP];
 
   connection.query(sql, values, (err, results) => {
@@ -90,7 +91,54 @@ app.post('/comments', (req, res) => {
       return;
     }
 
-    res.json({ message: 'Comment created successfully', commentId: results.insertId });
+    res.json({
+      message: 'Comment created successfully',
+      commentId: results.insertId,
+    });
+  });
+});
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//UPDATE users SET name = '" + name + "', email = '" + email + "', password_hash = '" + password_hash + "' WHERE id = " + id;
+app.patch('/users/:id', (request, response) => {
+  const id = request.params.id;
+  const { name, email, password_hash } = request.body;
+  if (!name && !email && !password_hash) {
+    response.status(400).send('Bad Request');
+    return;
+  }
+  const getUserById = 'SELECT * FROM users WHERE id = ' + id;
+
+  connection.query(getUserById, (err, results) => {
+    if (err) {
+      response.status(500).send('Error');
+      return;
+    }
+    if (results.length === 0) {
+      response.status(404).send('User not found');
+      return;
+    }
+    let updateUsersSQL = 'UPDATE users SET';
+    if (!!name) {
+      updateUsersSQL += " name = '" + name + "',";
+    }
+    if (!!email) {
+      updateUsersSQL += " email = '" + email + "',";
+    }
+    if (!!password_hash) {
+      updateUsersSQL += " password_hash = '" + password_hash + "',";
+    }
+    updateUsersSQL = updateUsersSQL.slice(0, -1);
+    updateUsersSQL += ' WHERE id = ' + id;
+
+    connection.query(updateUsersSQL, (err, results) => {
+      if (err) {
+        response.status(500).send(err);
+        return;
+      }
+      response.status(200).send(results);
+      return;
+    });
   });
 });
 
