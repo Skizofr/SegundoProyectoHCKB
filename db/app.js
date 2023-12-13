@@ -9,7 +9,7 @@ app.use(express.json());
 const connection = mysql.createConnection({
   host: 'localhost',
   user: 'root',
-  password: '951753',
+  password: '?LasTreron77?',
   database: 'secondproject',
 });
 
@@ -98,8 +98,6 @@ app.post('/comments', (req, res) => {
   });
 });
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//UPDATE users SET name = '" + name + "', email = '" + email + "', password_hash = '" + password_hash + "' WHERE id = " + id;
 app.patch('/users/:id', (request, response) => {
   const id = request.params.id;
   const { name, email, password_hash } = request.body;
