@@ -23,7 +23,7 @@ export const notFoundError = (resource) => {
 
 export const invalidCredentialsError = () => {
   throw {
-    httpStatus: 401, // Unauthorized
+    httpStatus: 401,
     code: "INVALID_CREDENTIALS",
     message: "Credenciales inválidas",
   };
