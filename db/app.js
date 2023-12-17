@@ -21,7 +21,7 @@ app.use(routes);
 const connection = mysql.createConnection({
   host: "localhost",
   user: "root",
-  password: "Aquí va tu contraseña",
+  password: "",
   database: "secondproject",
 });
 

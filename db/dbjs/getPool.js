@@ -9,7 +9,7 @@ const getPool = async () => {
         connectionLimit: 10,
         host: "localhost",
         user: "root",
-        password: "Aquí va tu contraseña",
+        password: "",
         database: "secondproject",
         timezone: "Z",
       });

@@ -20,3 +20,11 @@ export const notFoundError = (resource) => {
     message: `El recurso requerido '${resource}' no existe`,
   };
 };
+
+export const invalidCredentialsError = () => {
+  throw {
+    httpStatus: 401,
+    code: "INVALID_CREDENTIALS",
+    message: "Credenciales inválidas",
+  };
+};
