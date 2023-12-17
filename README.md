@@ -1,5 +1,32 @@
-//Para que se conecte correctamente a la Base de Datos
+//Conexión a la Base de Datos:
 
-    1º Hay que sustituir en app.js, la contraseña de la variable connection "Aquí va tu contraseña", por tu contraseña
+    1º Sustituimos en app.js, la contraseña de la variable connection "Aquí va tu contraseña", por tu contraseña.
 
     2º Hay que hacer lo mismo en ./dbjs/getPool.js y poner tu contraseña
+
+    3º Iniciamos la base de datos en Workbench.
+
+    4º Ejecutamos "node app.js" en la terminal.
+
+//Registro de Usuarios:
+
+    1º Abrimos Postman y realizamos una consulta en el link "http://localhost:3000/users/register"
+
+    2º Realizamos una consulta tipo "post", utilizamos la sección "body" tipo "raw" en "JSON".
+
+    3º Para comproar el resultado abrimos y actualizamos nuestra base de dato es Workbench.
+
+//Login de Usuarios:
+    1º
+    2º
+    3º
+
+//Realizar un comentario:
+
+    1º Iniciamos la base de datos en Workbench.
+    2º Ejectuamos "node app.js".
+    3º Realizamos una consulta tipo "post", utilizamos la sección "body" tipo "raw" en "JSON".
+    4º Escribimos nuestro comentario.
+    5º Para comprobar nuestro comentario utiilizamos un
+
+//Actualizar la contraseña o nombre de los Usuarios:
