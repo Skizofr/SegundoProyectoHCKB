@@ -1,13 +1,11 @@
 //Antes de comenzar!!!!
 
-Instalaar las dependencias ejecutando "npm i" en la carpeta db.
+Instalar las dependencias ejecutando "npm i" en la carpeta db.
 
 //Conexión a la Base de Datos:
     1º Sustituimos en app.js, la contraseña de la variable connection "Aquí va tu contraseña", por tu contraseña.
     2º Hay que hacer lo mismo en ./dbjs/getPool.js y poner tu contraseña
-
     3º Iniciamos la base de datos en Workbench.
-
     4º Ejecutamos "node app.js" en la terminal.
 
 //Registro de Usuarios:
