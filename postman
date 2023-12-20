@@ -1,0 +1,220 @@
+{
+	"info": {
+		"_postman_id": "78eee72b-7321-47cc-843a-f719d2dadc48",
+		"name": "Project2Gets",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "31700155",
+		"_collection_link": "https://www.postman.com/proyecto2hckb/workspace/team-workspace/collection/31700155-78eee72b-7321-47cc-843a-f719d2dadc48?action=share&source=collection_link&creator=31700155"
+	},
+	"item": [
+		{
+			"name": "Users",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SignIn",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/signin",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"signin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Comments",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:3000/comments",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"comments"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Votes",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/votes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"votes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "comments",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response is an object with message and commentId properties\", function () {\r",
+							"    pm.expect(pm.response.json()).to.be.an('object').that.has.all.keys('message', 'commentId');\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response time is less than 500ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"userId\":1,\r\n\"commentText\":\"commentTextUser10\",\r\n\"commentDate\":\"2023-12-17T18:54:18.000Z\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/comments",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"comments"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"kevin\",\r\n    \"email\":\"ejemplo@gmail.com\",\r\n    \"password_hash\":\"?LasTreron77?\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/users/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"users",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\":\"ejemplo@gmail.com\",\r\n    \"password_hash\":\"?LasTreron77?\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/users/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"users",
+						"login"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
